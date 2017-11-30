@@ -1,0 +1,22 @@
+{
+  "name": "marko-input-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "mkdir -p dist",
+    "build": "npm run build-not-ok-example && npm run build-ok-example",
+    "prebuild-not-ok-example": "cp src/index.html dist/not-ok-example.html",
+    "build-not-ok-example": "lasso --main src/not-ok-example/client.js --name not-ok-example --plugins lasso-marko --inject-into dist/not-ok-example.html --out dist",
+    "prebuild-ok-example": "cp src/index.html dist/ok-example.html",
+    "build-ok-example": "lasso --main src/ok-example/client.js --name ok-example --plugins lasso-marko --inject-into dist/ok-example.html --out dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lasso": "^3.0.0",
+    "lasso-cli": "^2.0.11",
+    "lasso-marko": "^2.3.1",
+    "marko": "^4.6.0"
+  }
+}
